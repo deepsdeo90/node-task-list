@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const asana = require('asana');
+const client = asana.Client.create().useAccessToken('0/69589d01c1c0ead333398239b527303c');
 
 const app = express();
 
@@ -8,8 +10,26 @@ app.use(morgan('tiny'));
 app.use(cors());
 
 
-app.get("/asana",(req,res)=>{
-	res.json([]);
+app.get("/asana/:id",(req,res)=>{
+	let projectID=req.params.id;
+	client.projects.findById(projectID)
+    .then(data => {
+      	var projectname=  data.name;
+      	console.log(projectname);
+
+      	client.tasks.findByProject(projectID)
+		    .then(data => {
+		      res.send({task:data.data, projectname:projectname})
+		    })
+		    .catch(err => {
+		      console.log(err)
+		    })
+
+
+    })
+    .catch(err => {
+      console.log(err)
+    })
 });
 
 
