@@ -81,6 +81,7 @@ header {
   header img {
     width: 10rem; }
 
+/*header*/
 nav {
   width: 100%;
   padding: 15px; }
@@ -88,15 +89,18 @@ nav {
     text-align: center;
     font-size: 1.8rem; }
 
+/*nav*/
 .container {
   width: 90%;
   padding: 0 2% 5%;
   margin: 0 5%;
-  border-radius: 27px; }
+  border-radius: 27px;
+  /*ul*/ }
   .container ul {
     width: 100%;
     overflow-y: auto;
-    height: 30em; }
+    height: 30em;
+    /*li*/ }
     .container ul li {
       width: 100%;
       color: #444444;
@@ -106,7 +110,9 @@ nav {
       padding: 14px 100px 14px 14px;
       word-break: break-word;
       border-bottom: 1px solid #edf0f1;
-      opacity: 1; }
+      opacity: 1;
+      /*a tag close*/
+      /*button*/ }
       .container ul li a {
         text-decoration: none;
         color: #444444; }
@@ -122,7 +128,8 @@ nav {
         border: 0px;
         box-shadow: none;
         outline: none;
-        cursor: pointer; }
+        cursor: pointer;
+        /*svg*/ }
         .container ul li .buttons svg {
           width: 22px;
           height: 22px;
@@ -135,7 +142,8 @@ nav {
           -ms-border-radius: 11px;
           border-radius: 11px;
           border: 1.5px solid #FC636B;
-          transition: background 0.2s ease; }
+          transition: background 0.2s ease;
+          /*.fill*/ }
           .container ul li .buttons svg .fill {
             fill: #FC636B;
             transition: fill 0.2s ease; }
@@ -144,6 +152,7 @@ nav {
       .container ul li .buttons:hover svg .fill {
         fill: #ffffff; }
 
+/*.container*/
 footer {
   background-color: #161D28;
   padding: 25px;
