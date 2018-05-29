@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const asana = require('asana');
-const client = asana.Client.create().useAccessToken('0/69589d01c1c0ead333398239b527303c');
+const client = asana.Client.create().useAccessToken(process.env.USER_ACCESS_TOKEN);
 
 const app = express();
 const path = require('path');
