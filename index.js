@@ -5,9 +5,13 @@ const asana = require('asana');
 const client = asana.Client.create().useAccessToken('0/69589d01c1c0ead333398239b527303c');
 
 const app = express();
+const path = require('path');
 
 app.use(morgan('tiny'));
 app.use(cors());
+app.set("view engine","ejs");
+
+app.use(express.static("public"));
 
 
 app.get("/asana/:id",(req,res)=>{
@@ -19,7 +23,9 @@ app.get("/asana/:id",(req,res)=>{
 
       	client.tasks.findByProject(projectID)
 		    .then(data => {
-		      res.send({task:data.data, projectname:projectname})
+		      //res.send({task:data.data, projectname:projectname})
+            res.render("index",{task:data.data, projectname:projectname});
+
 		    })
 		    .catch(err => {
 		      console.log(err)
