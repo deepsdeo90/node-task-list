@@ -3,6 +3,13 @@ const cors = require('cors');
 const morgan = require('morgan');
 const asana = require('asana');
 const client = asana.Client.create().useAccessToken(process.env.USER_ACCESS_TOKEN);
+var username;
+client.users.me()
+  .then(function(me) {
+    // Print out your information
+    username = me.name;
+   // console.log('Hello world! ' + 'My name is ' + me.name + ' and my primary Asana workspace is .');
+});
 
 const app = express();
 const path = require('path');
@@ -19,12 +26,9 @@ app.get("/asana/:id",(req,res)=>{
 	client.projects.findById(projectID)
     .then(data => {
       	var projectname=  data.name;
-      	console.log(projectname);
-
-      	client.tasks.findByProject(projectID)
+       	client.tasks.findByProject(projectID)
 		    .then(data => {
-		      //res.send({task:data.data, projectname:projectname})
-            res.render("index",{task:data.data, projectname:projectname});
+	          res.render("index",{task:data.data, projectname:projectname,username:username,projectID:projectID});
 
 		    })
 		    .catch(err => {
