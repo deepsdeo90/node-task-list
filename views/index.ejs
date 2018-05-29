@@ -1,16 +1,19 @@
 <div>
 <% include partials/header %>
+<!-- To header -->
 <header>
 <div class='logodiv'>
       <img src="../img/Logo-Horizontal-Color.png">
       <span>Welcome to <%= username %>'s account</span>
 </div>
 </header>
+<!-- Navigation -->
 <nav>  
  <div><h1>My Tasks in <%= projectname%> </h1></div>
 </nav>
+<!-- Main contianer -->
 <div class="container">
-			<!-- Uncompleted tasks -->
+			<!-- My tasks -->
 			<ul class="todo" id="tasks">
 			<% task.forEach(function(task) { %>
 		        <li><a  target="_blank" href="https://app.asana.com/0/<%=projectID%>/<%=task.id%>"><%= task.name %></a>
@@ -19,10 +22,8 @@
 				</button>
 				</li>
 		    <% }); %>
-				
-</ul>
-</div>
-
-
+			</ul>
+</div> <!-- //.container -->
+<!-- Footer -->
 <% include partials/footer %>
 </div>

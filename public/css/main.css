@@ -1,3 +1,4 @@
+/*======================variables=================*/
 @keyframes my-animation {
   from {
     opacity: 1;
@@ -59,7 +60,7 @@ body, input, button {
   font-weight: 500; }
 
 body {
-  padding: 65px 0 0 0;
+  padding: 55px 0 0 0;
   overflow-y: hidden;
   background: #edf0f1;
   /*background: linear-gradient(to top right, #ff5263 0%, #ff7381 35%, #fcbd01 100%); */ }
@@ -72,10 +73,10 @@ header {
   left: 0;
   z-index: 5;
   background: #ffffff;
-  border-bottom: 1px solid #edf0f1; }
+  border-bottom: 3px solid #FC636B; }
   header span {
     float: right;
-    padding: 10px;
+    padding: 5px 10px;
     font-size: 1.1rem; }
   header img {
     width: 10rem; }
@@ -86,18 +87,10 @@ nav {
   nav h1 {
     text-align: center;
     font-size: 1.8rem; }
-  nav h1:after {
-    width: 10rem;
-    height: 3px;
-    background-color: #FC636B;
-    display: block;
-    content: " ";
-    margin: 0 auto;
-    margin-top: 10px; }
 
 .container {
   width: 90%;
-  padding: 2% 5%;
+  padding: 0 2% 5%;
   margin: 0 5%;
   border-radius: 27px; }
   .container ul {
@@ -147,6 +140,10 @@ nav {
           .container ul li .buttons svg .fill {
             fill: #FC636B;
             transition: fill 0.2s ease; }
+      .container ul li .buttons:hover svg {
+        background-color: #FC636B; }
+      .container ul li .buttons:hover svg .fill {
+        fill: #ffffff; }
 
 footer {
   background-color: #161D28;
@@ -155,15 +152,11 @@ footer {
   position: fixed;
   bottom: 0; }
 
-ul.todo:not(#completed) li .buttons:hover svg {
-  background-color: #FC636B; }
-
-ul.todo:not(#completed) li .buttons:hover svg .fill {
-  fill: #ffffff; }
-
+/*apply animate class on done click*/
 .animate {
   animation: my-animation 2s ease forwards; }
 
+/*media query for tablet*/
 @media (max-width: 768px) {
   .container {
     width: 100%;
@@ -173,6 +166,7 @@ ul.todo:not(#completed) li .buttons:hover svg .fill {
     .container ul {
       border-radius: 1px; } }
 
+/*media query for mobile*/
 @media (max-width: 420px) {
   body {
     padding: 29% 0 0 0; }
